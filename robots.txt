@@ -1,3 +1,4 @@
 ﻿Sitemap: https://crackychan.net/sitemap.txt
+Sitemap: https://bounceme.crackychan.net:8181/sitemap.txt
 
 #she is cute that is why she is called cracky-chan

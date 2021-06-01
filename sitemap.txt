@@ -1,3 +1,8 @@
+https://bounceme.crackychan.net:8181/
+https://bounceme.crackychan.net:8181/cgi-bin/classic.rb
+https://bounceme.crackychan.net:8181/robots.txt
+https://bounceme.crackychan.net:8181/sitemap.txt
+https://bounceme.crackychan.net:8181/testgallery/
 https://crackychan.net/
 https://crackychan.net/404
 https://crackychan.net/gallery6/
