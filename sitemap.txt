@@ -6,6 +6,7 @@ https://bounceme.crackychan.net:8181/testgallery/
 https://crackychan.net/
 https://crackychan.net/404
 https://crackychan.net/gallery6/
+https://crackychan.net/irc-log-clips
 https://crackychan.net/irc-log-clips.txt
 https://crackychan.net/pasta6.txt
 https://crackychan.net/robots.txt
