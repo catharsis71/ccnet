@@ -12,3 +12,7 @@ https://crackychan.net/pasta6
 https://crackychan.net/pasta6.txt
 https://crackychan.net/robots.txt
 https://crackychan.net/sitemap.txt
+https://fanart.crackychan.net/
+https://fanart.crackychan.net/cgi-bin/classic.rb
+https://fanart.crackychan.net/robots.txt
+https://fanart.crackychan.net/sitemap.xml
