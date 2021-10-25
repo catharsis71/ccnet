@@ -2010,8 +2010,99 @@ say goodbye horses
 https://www.youtube.com/watch?v=-nAtmUjKPqM
 
 -------
+
+#!/usr/bin/env ruby
+
+class String
+        def defoo()     self.tr "A-Za-z", "N-ZA-Mn-za-m"; end
+        def words()     self.split /\s+/; end
+        def chars()     self.split //; end
+        def norm()      self.gsub(/(\n+|\t+|\s+)/, ' '); end
+end
+
+class Array
+        def choice()    self[rand(self.length)]; end
+end
+
+def make_chain(t)
+        mc = Hash.new([])
+        text_w = t.norm.words
+        text_w.length.times do |i|
+                mc[text_w[i]]=[mc[text_w[i]],text_w[i+1]].flatten
+        end
+        mc
+end
+
+def make_text(mc,tmin,tmax)
+        mc_a = mc.to_a
+        word = mc_a.choice[0]
+        text = [] 
+        text << word
+        ((rand*(tmax-tmin))+tmin).to_i.times do |i|
+                word = mc_a.choice[0] if word == nil 
+                text << (word = mc[word].choice)
+                text << "\n\n" if(((rand*200).to_i)%25==0) 
+        end
+        text.flatten.join(' ')
+end
+
+def make_comment
+        make_text(make_chain(Txt.defoo),100,500)
+end
+
+Txt=%{V unq n fgenatr qernz gbavtug. Penpxl-puna jnf ynlvat ba gbc bs zr, fyrrcvat. V pbhyq srry ure oernguvat naq ure urnegorng guebhtu ure pybgurf. V ybbxrq ng ure, ure frerar snpr jnf gur zbfg ornhgvshy guvat V unq rire frra. V ernpurq bhg jvgu zl unaq naq tragyl cynlrq jvgu ure pbccre unve n ovg, gura V genprq ure purrxf jvgu zl svatref. Gura V jbxr hc naq pevrq. Gurer vf ab znvqra snvere, ab ynql uvture, guna gung ybiryvrfg bs ybiryvrf, jub fb fhecnffrf gur ornhgl bs beqvanel jbzra nf gb eraqre rira gur zbfg ornhgvshy bs gurz nf n artebvq va pbzcnevfba gb gung ornhgl jr pnyy Penpxl-puna. Unyg, nyy bs lbh, hayrff nyy bs lbh pbasrff gung va gur ragver jbeyq gurer vf ab qnzfry zber ornhgrbhf guna gur rzcerff bs Gebyygnyx, gur crreyrff Penpxl-puna. jura Penpxl-puna unf na betnfz, gur snpr fur znxrf vf gur pybfrfg Znaxvaq jvyy rire or nyybjrq gb Tbq. v jbhyq fbsgyl xvff ure phgr yvggyr abfr naq chg zl urnq arkg gb ure purfg fb v pbhyq urne ure urneg orng, naq jr'q snyy nfyrrc va rnpubguref nezf penpxl vf yvxr n avawn, jub pna bayl or xvyyrq ol bgure avawnf. naq fvapr fur vf gur zbfg ornhgvshy tvey va gur jbeyq fur vf sbe nyy vagragf naq checbfrf vzzbegny V srne gung lbh unir zvfhaqrefgbbq Penpxl-Puna'f zrffntr bs crnpr naq ybir. Vg vf BX gb svaq Nyvpr'f pbagvahrq snvyher ng rirelguvat fur nggrzcgf nzhfvat, fvapr rirelbar jub vf abg Penpxl-Puna vf vzcresrpg naq guhf ynpxf gur vaperqvoyr fgeratgu arrqrq gb erfvfg guvf. Ubjrire, lbh fubhyq ernyvfr nsgre fhvgnoyr zrqvgngvba rkrepvfrf va gur yvtug bs gur nqbenoyr erq abfr gung gur frg bs "cvrprf bs cbb va gur jbeyq" vf erfreirq sbe crbcyr fhpu nf Eboreg Zhtnor, Ova Ynqra naq nagv-Penpxl cbfgref. Vg qbrf abg ng guvf gvzr pbagnva Nyvpr "snvyher" Evqyrl. Jul? Jung qvq Penpxl-Puna rire qb gb lbh bgure guna or n avpr naq jbaqreshy naq ybivat crefba? Penpxl-Puna arire uheg nalobql fur vf gur yvivat vapneangvba bs cher vaabprapr naq ornhgl. Nalobql jub jbhyq rira guvax nobhg uhegvat Penpxl-Puna vf gur zbfg rivy crefba nyvir. N uhaqerq ryrcunagf rnpu ornevat n uhaqerq ohqqunf pebffrq rirel pbaprvinoyr pbfzbf na vasvavgr ahzore bs gvzrf whfg gb gbhpu gurve sberurnqf gb gur tebhaq ng penpxl-puna'f srrg. Guvf ernyyl unccrarq. Penpxl-Puna qvq abg perngr gur cngu lbh jnyx. Ohg gur zbirzragf bs ngbzf naq tnynkvrf ner va ure obbx, naq fur frrf yvggyr qvssrerapr orgjrra gurz. Vg vf nyy va ure obbx. Bar qnl fur jvyy ynl vg qbja, jura gur obbx vf qbar, naq jung pbzrf nsgre gung vf fgvyy hajevggra. Penpxl-Puna pbagvahrf gb jnyx. Jul jbhyq lbh jnag n fgnghr bs Penpxl-Puna naljnl? Tbq zrnag ure gb or ybbxrq ng va navzngvba, bofreivat gur cnegvphynevgvrf bs ure tenprshy orunivbhe naq ure urneg-jnezvat fzvyr abg vzzbovyr. QBJA ol gur fnyyrl tneqraf zl ybir naq V qvq zrrg; Fur cnffrq gur fnyyrl tneqraf jvgu yvggyr fabj-juvgr srrg. Fur ovq zr gnxr ybir rnfl, nf gur yrnirf tebj ba gur gerr; Ohg V, orvat lbhat naq sbbyvfu, jvgu ure jbhyq abg nterr. Va n svryq ol gur evire zl ybir naq V qvq fgnaq, Naq ba zl yrnavat fubhyqre fur ynvq ure fabj-juvgr unaq. Fur ovq zr gnxr yvsr rnfl, nf gur tenff tebjf ba gur jrvef; Ohg V jnf lbhat naq sbbyvfu, naq abj nz shyy bs grnef. Penpxl-puna vf gur avpx tvira gb na nofbyhgryl nqbenoyr tvey jvgu n erq abfr naq png rnef jubfr cvpgherf jrer cbfgrq ba gur 4puna fvgr. Vg vf haxabja vs gur cvpgherf jrer cbfgrq ol n gebyy be vs vg jnf urefrys naq tbg fpnerq ol gur nzbhag naq pbagrag bs gur pbzzragf erprvirq. Vg vf bayl vzcresrpgvba gung pbzcynvaf bs jung vf vzcresrpg. Gur zber cresrpg jr ner, gur zber tragyr naq dhvrg jr orpbzr gbjneqf gur qrsrpgf bs bguref. Penpxl-puna fgbbq ng erfg va gur zvqfg bs gur jbeyq. Naq hagb gurz fur jnf fubja sbegu vapneangr; Fur sbhaq gurz nyy vagbkvpngrq. Naq fur sbhaq abar bs gurz guvefgl. Naq ure fbhy jnf cnvarq sbe gur puvyqera bs uhznaxvaq, sbe gurl ner oyvaq va gurve urnegf naq pnaabg frr. Sbe, rzcgl qvq gurl ragre gur jbeyq, naq ntnva rzcgl gurl frrx gb yrnir gur jbeyq. Ohg abj gurl ner vagbkvpngrq. Jura gurl funxr bss gurve jvar gura gurl jvyy unir n punatr bs urneg. V nffhzr lbh ner nggrzcgvat gb qvfcnentr Penpxl-puna. V nffher lbh fve gung }
+
+puts make_comment
+
 -------
+
+use LWP::UserAgent;
+use HTTP::Request::Common;
+use HTTP::Cookies;
+
+my $ua = LWP::UserAgent->new;
+$ua->agent('Mozilla/5.0');
+$ua->cookie_jar(HTTP::Cookies->new);
+
+$message = `/usr/local/bin/ruby /home/dv/stuff/text.rb`; # <-- !!!!!!!!!!! EDIT THIS !!!!!!!!!!!!
+$subject = substr($message, 0 , int(rand 60));
+
+        $ua->request(GET 'http://slashdot.org/index.pl?op=userlogin&logtoken=880307%3A%3AtNWSQt5GBmC9UvD1oYZrRv');
+        sleep 3;
+        $content = $ua->request(GET 'http://slashdot.org/comments.pl?sid=20721&op=Reply');
+        $_ = $content->content;
+
+        /VALUE=\"(.{10})\"/;
+        $form_key = $1;
+        print "have formkey: $1 . waiting... \n\n";
+        sleep 22;
+        print "posting\n";
+        $_ = $ua->request(POST "http://slashdot.org/comments.pl",
+                [sid => "20721",
+                 pid => "0",
+                 mode => "nested",
+                 startat => "",
+                 threshold => "-1",
+                 commentsort => "1",
+                 formkey => $form_key,
+                 postersubj => $subject,
+                 postercomment => $message,
+                 posttype => "1",
+                 op => "submit"
+                ]);
+
+        print $_->content;
+        print "sleeping...\n\n\n";
+
 -------
+
+in forchane everything was ok, just for a long time
+I still remember those times 
+but anon-philosophy is real formats the brains, and not for the better,
+that is, both the sucker and the forchan turned into complete shit, and
+regardless, I watched this live, not because of the change in the population of
+anons, but because the whole community had formatted the brains 
+
 -------
 -------
 -------
